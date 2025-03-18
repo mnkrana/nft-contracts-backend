@@ -80,3 +80,21 @@ func (c *RanaAdapter) MintBatch(address common.Address, ids []*big.Int, amounts 
 func (c *RanaAdapter) GetUris(address common.Address, balance int64) (interface{}, error) {
 	return nil, nil
 }
+
+func (c *RanaAdapter) SafeTransferNFT(from common.Address, to common.Address, id *big.Int, amount *big.Int) (string, error) {
+	authValue := big.NewInt(0)
+	auth, err := c.RPC.GetAuth(authValue)
+	if err != nil {
+		log.Println("error in auth, can't transfer NFT", err)
+		return "", err
+	}
+
+	tx, err := c.Instance.SafeTransferFrom(auth, from, to, id, amount, []byte{})
+	if err != nil {
+		log.Println("error in transferring NFT", err)
+		return "", err
+	}
+
+	log.Println("transfer tx", tx.Hash().Hex())
+	return tx.Hash().Hex(), nil
+}

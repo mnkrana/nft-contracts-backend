@@ -24,7 +24,7 @@ func NewMintBatchCommand(port ports.NFTPort) *MintBatchCommand {
 	return &MintBatchCommand{Contract: port}
 }
 
-func (m *MintBatchCommand) ExecuteRequest(action string, request interface{}) (string, error) {
+func (m *MintBatchCommand) ExecuteRequest(action string, request any) (string, error) {
 	req, ok := request.(*MintBatchRequest)
 	log.Println("execute req", req)
 	if !ok {

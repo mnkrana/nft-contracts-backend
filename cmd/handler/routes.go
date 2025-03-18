@@ -16,6 +16,7 @@ import (
 func RegisterRoutes(e *echo.Echo, router *Router) {
 	// POST routes with structured payloads
 	e.POST("/mintbatch", handleStructuredRequest(router, "mintbatch", &commands.MintBatchRequest{}))
+	e.POST("/transfer", handleStructuredRequest(router, "transfer", &commands.TransferRequest{}))
 }
 
 // handleStructuredRequest handles routes with structured payloads
