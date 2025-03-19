@@ -32,13 +32,13 @@ func InitNFT(rpcPort ports.RpcPort) *RanaAdapter {
 	return contract
 }
 
-func (c *RanaAdapter) GetPlayerBalance(address common.Address) (*big.Int, error) {
+func (c *RanaAdapter) GetBalance(address common.Address) (*big.Int, error) {
 	log.Println("Balance command is not implemented")
 	return big.NewInt(0), errors.New("balance command is not implemented")
 }
 
-func (c *RanaAdapter) GetPlayerBalanceWithCardID(address common.Address, cardId *big.Int) (*big.Int, error) {
-	balance, err := c.Instance.BalanceOf(&bind.CallOpts{From: address}, address, cardId)
+func (c *RanaAdapter) GetBalanceWithTokenID(address common.Address, tokenId *big.Int) (*big.Int, error) {
+	balance, err := c.Instance.BalanceOf(&bind.CallOpts{From: address}, address, tokenId)
 	if err != nil {
 		return big.NewInt(0), err
 	}
