@@ -40,4 +40,8 @@ curl -X POST -d '{"address":"0x6f7c25e46E719d7AEcd76a2a53752353C5e19cE5","id":37
 ### Mints
 
 - Check all minted tokens here
-  https://puppyscan.shib.io/token/0xDB929853F31f9cfccF753A2Cec27c6A37c9D8bFa
+
+  - https://puppyscan.shib.io/token/0xDB929853F31f9cfccF753A2Cec27c6A37c9D8bFa
+
+- Faucet
+  - https://shibarium.shib.io/faucet
