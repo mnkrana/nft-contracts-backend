@@ -31,6 +31,7 @@ func initializeCommands(
 	commands := map[string]ports.Command{
 		"mintbatch": commands.NewMintBatchCommand(ranaAdapter),
 		"transfer":  commands.NewTransferCommand(rpc, ranaAdapter),
+		"tx":        commands.NewTransactionCommand(rpc, ranaAdapter),
 	}
 	return commands
 }
